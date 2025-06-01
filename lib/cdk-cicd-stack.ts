@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
-import { PipelineStage } from './pipeline-stage';
+import { PipelineStage } from './PipelineStageStack';
 
 //adding comment to redeploy the project 1st commit failed and also the npm run build command because the build pipeline failed because of build
 
