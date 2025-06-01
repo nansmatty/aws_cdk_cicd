@@ -3,6 +3,8 @@ import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelin
 import { Construct } from 'constructs';
 import { PipelineStage } from './pipeline-stage';
 
+//adding comment to redeploy the project 1st commit failed and also the npm run build command because the build pipeline failed because of build
+
 export class CdkCicdStack extends cdk.Stack {
 	constructor(scope: Construct, id: string, props?: cdk.StackProps) {
 		super(scope, id, props);
@@ -11,7 +13,7 @@ export class CdkCicdStack extends cdk.Stack {
 			pipelineName: 'AwesomePipeline',
 			synth: new ShellStep('Synth', {
 				input: CodePipelineSource.gitHub('nansmatty/aws_cdk_cicd', 'main'),
-				commands: ['npm ci', 'npx cdk synth'],
+				commands: ['npm ci', 'npm run build', 'npx cdk synth'],
 			}),
 		});
 
